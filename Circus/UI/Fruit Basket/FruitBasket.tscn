@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Collectable/Fruit/Strawberry.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectable/Fruit/Banana.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectable/Fruit/Apple.png" type="Texture" id=3]
+[ext_resource path="res://UI/Fruit Basket/FruitBasket.gd" type="Script" id=4]
+
+[node name="FruitBasket" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -952.0
+margin_bottom = -528.0
+script = ExtResource( 4 )
+
+[node name="Apple" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Banana" type="Sprite" parent="."]
+position = Vector2( 64, 32 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="Strawberry" type="Sprite" parent="."]
+position = Vector2( 32, 40 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
