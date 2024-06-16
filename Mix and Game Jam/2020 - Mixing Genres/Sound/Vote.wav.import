@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Vote.wav-5f13c48e17cce93fb4393f96e8ebda67.sample"
+
+[deps]
+
+source_file="res://Sound/Vote.wav"
+dest_files=[ "res://.import/Vote.wav-5f13c48e17cce93fb4393f96e8ebda67.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

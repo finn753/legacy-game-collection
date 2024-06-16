@@ -1,0 +1,29 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=2]
+
+[ext_resource path="res://Entity/Player/Stranger.png" type="Texture" id=1]
+[ext_resource path="res://Entity/Player/Ghost.png" type="Texture" id=2]
+[ext_resource path="res://Entity/Player/Donut.png" type="Texture" id=3]
+[ext_resource path="res://Entity/Player/Pinata.png" type="Texture" id=4]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Ghost",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Donut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Stranger",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Pinata",
+"speed": 5.0
+} ]

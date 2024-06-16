@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/Lobby/Town.tres" type="TileSet" id=1]
+
+[node name="Blocks" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 4, 2, 0, 8, 2, 0, 15, 2, 0, 65537, 2, 0, 65538, 2, 0, 65541, 2, 0, 65544, 2, 0, 65547, 2, 0, 131078, 2, 0, 131086, 2, 0, 196608, 2, 0, 196612, 2, 0, 196618, 2, 0, 262145, 2, 0, 262151, 2, 0, 262157, 2, 0, 327689, 2, 0, 393218, 2, 0, 393221, 2, 0, 393223, 2, 0, 458762, 2, 0, 458766, 2, 0, 524288, 2, 0, 524291, 2, 0, 524294, 2, 0, 524296, 2, 0, 524300, 2, 0 )

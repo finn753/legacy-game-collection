@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Player Settings/Player Settings.gd" type="Script" id=1]
+[ext_resource path="res://Entity/Player/Sprites.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://UI/Button.tres" type="StyleBox" id=3]
+[ext_resource path="res://UI/Button hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://UI/Button pressed.tres" type="StyleBox" id=5]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.894118, 0.65098, 0.447059, 0 )
+border_width_bottom = 2
+border_color = Color( 0.619608, 0.156863, 0.207843, 1 )
+
+[node name="Player Settings" type="VBoxContainer"]
+margin_right = 64.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 64, 64 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Character Button" type="Button" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+enabled_focus_mode = 0
+
+[node name="Sprite" type="AnimatedSprite" parent="Character Button"]
+position = Vector2( 32, 32 )
+scale = Vector2( 3, 3 )
+frames = ExtResource( 2 )
+animation = "Donut"
+
+[node name="Name" type="LineEdit" parent="."]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 64, 0 )
+custom_styles/normal = SubResource( 4 )
+align = 1
+placeholder_text = "Name"
+caret_blink = true
+
+[node name="Control Button" type="Button" parent="."]
+margin_top = 101.0
+margin_right = 64.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 64, 0 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 0.619608, 0.156863, 0.207843, 1 )
+custom_colors/font_color_hover = Color( 0.619608, 0.156863, 0.207843, 1 )
+custom_colors/font_color_pressed = Color( 0.619608, 0.156863, 0.207843, 1 )
+enabled_focus_mode = 0
+text = "wasd"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Character Button" to="." method="_on_Character_Button_button_down"]
+[connection signal="focus_entered" from="Name" to="." method="_on_Name_focus_entered"]
+[connection signal="focus_exited" from="Name" to="." method="_on_Name_focus_exited"]
+[connection signal="mouse_exited" from="Name" to="." method="_on_Name_mouse_exited"]
+[connection signal="text_changed" from="Name" to="." method="_on_Name_text_changed"]
+[connection signal="button_down" from="Control Button" to="." method="_on_Control_Button_button_down"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://World/Lobby/Town.tres" type="TileSet" id=1]
+[ext_resource path="res://Objects/Camera/CameraOverview.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Minigames/Kick-off/Kick-off.gd" type="Script" id=3]
+
+[node name="Kick-off" type="Node2D"]
+script = ExtResource( 3 )
+started = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131075, 16, 0, -131074, 16, 0, -131073, 16, 0, -196608, 16, 0, -196607, 16, 0, -196606, 16, 0, -65539, 16, 0, -65538, 16, 0, -65537, 16, 0, -131072, 16, 0, -131071, 16, 0, -131070, 16, 0, -3, 16, 0, -2, 16, 0, -1, 16, 0, -65536, 16, 0, -65535, 16, 0, -65534, 16, 0, 65533, 16, 0, 65534, 16, 0, 65535, 16, 0, 0, 16, 0, 1, 16, 0, 2, 16, 0, 131069, 16, 0, 131070, 16, 0, 131071, 16, 0, 65536, 16, 0, 65537, 16, 0, 65538, 16, 0, 196605, 16, 0, 196606, 16, 0, 196607, 16, 0, 131072, 16, 0, 131073, 16, 0, 131074, 16, 0 )
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="CameraOverview" parent="." instance=ExtResource( 2 )]
+current = true
+
+[node name="Collapse" type="Timer" parent="."]
+wait_time = 6.5
+autostart = true
+
+[node name="Indicator" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+[connection signal="timeout" from="Collapse" to="." method="_on_Collapse_timeout"]
+[connection signal="timeout" from="Indicator" to="." method="_on_Indicator_timeout"]

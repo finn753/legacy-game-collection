@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PRemove.wav-661c4ba0d93d13f53d1913aec7fefaef.sample"
+
+[deps]
+
+source_file="res://Sound/PRemove.wav"
+dest_files=[ "res://.import/PRemove.wav-661c4ba0d93d13f53d1913aec7fefaef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
