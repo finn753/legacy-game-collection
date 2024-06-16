@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Factory Rescue/Factory Rescue.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Town/Town.tres" type="TileSet" id=4]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/NPC/NPC.tscn" type="PackedScene" id=6]
+
+[node name="Factory Rescue" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.686275, 0.588235, 0.588235, 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -589818, 43, 0, -589817, 43, 1, -589816, 43, 1, -589815, 43, 1, -589814, 43, 1, -589813, 43, 1, -589812, 43, 1, -589811, 43, 1, -589810, 43, 1, -589809, 43, 1, -589808, 43, 2, -524282, 43, 65536, -524281, 43, 65537, -524280, 43, 65537, -524279, 43, 65537, -524278, 43, 65537, -524277, 43, 65537, -524276, 43, 65537, -524275, 43, 65537, -524274, 43, 65537, -524273, 43, 65537, -524272, 43, 65538, -458746, 43, 131072, -458745, 43, 131073, -458744, 43, 131073, -458743, 43, 131073, -458742, 43, 131073, -458741, 43, 131073, -458740, 43, 131073, -458739, 43, 131073, -458738, 43, 131073, -458737, 43, 131073, -458736, 43, 131074, -393211, 28, 0, -393210, 44, 65537, -393209, 44, 65537, -393208, 44, 65537, -393207, 44, 65537, -393206, 44, 65537, -393205, 44, 65537, -393204, 44, 65537, -393203, 44, 65537, -393202, 44, 65537, -393201, 44, 65537, -393200, 44, 65537, -393199, 28, 0, -327675, 28, 0, -327674, 44, 65537, -327673, 44, 65536, -327672, 44, 2, -327671, 44, 131074, -327670, 44, 1, -327669, 44, 65536, -327668, 44, 2, -327667, 44, 65536, -327666, 44, 2, -327665, 44, 131074, -327664, 44, 65537, -327663, 28, 0, -262139, 28, 0, -262138, 44, 65537, -262137, 44, 131072, -262136, 44, 2, -262135, 44, 0, -262134, 44, 131074, -262133, 44, 2, -262132, 44, 0, -262131, 44, 131074, -262130, 44, 2, -262129, 44, 2, -262128, 44, 65537, -262127, 28, 0, -196603, 28, 0, -196602, 44, 65537, -196601, 44, 131072, -196600, 44, 131072, -196599, 44, 2, -196598, 44, 2, -196597, 44, 131073, -196596, 44, 65537, -196595, 44, 2, -196594, 44, 131074, -196593, 44, 2, -196592, 44, 65537, -196591, 28, 0, -131067, 28, 0, -131066, 44, 65537, -131065, 44, 2, -131064, 44, 1, -131063, 44, 2, -131062, 44, 0, -131061, 44, 131074, -131060, 44, 0, -131059, 44, 65536, -131058, 44, 131073, -131057, 44, 131074, -131056, 44, 65537, -131055, 28, 0, -65531, 28, 0, -65530, 44, 65537, -65529, 44, 0, -65528, 44, 131073, -65527, 44, 2, -65526, 44, 131074, -65525, 44, 65538, -65524, 44, 65536, -65523, 44, 2, -65522, 44, 2, -65521, 44, 2, -65520, 44, 65537, -65519, 28, 0, 5, 28, 0, 6, 44, 65537, 7, 44, 2, 8, 44, 2, 9, 44, 2, 10, 44, 0, 11, 44, 65537, 12, 44, 131074, 13, 44, 2, 14, 44, 131073, 15, 44, 65536, 16, 44, 65537, 17, 28, 0, 65541, 28, 0, 65542, 44, 65537, 65543, 44, 2, 65544, 44, 2, 65545, 44, 2, 65546, 44, 1, 65547, 44, 65536, 65548, 44, 2, 65549, 44, 2, 65550, 44, 0, 65551, 44, 2, 65552, 44, 65537, 65553, 28, 0, 131077, 28, 0, 131078, 44, 65537, 131079, 44, 0, 131080, 44, 131072, 131081, 44, 2, 131082, 44, 65538, 131083, 44, 2, 131084, 44, 2, 131085, 44, 2, 131086, 44, 2, 131087, 44, 2, 131088, 44, 65537, 131089, 28, 0, 196613, 28, 0, 196614, 44, 65537, 196615, 44, 65537, 196616, 44, 65537, 196617, 44, 65537, 196618, 44, 65537, 196619, 44, 65537, 196620, 44, 65537, 196621, 44, 65537, 196622, 44, 65537, 196623, 44, 65537, 196624, 44, 65537, 196625, 28, 0, 262149, 28, 0, 262150, 28, 0, 262151, 28, 0, 262152, 28, 0, 262153, 28, 0, 262154, 28, 0, 262155, 44, 65537, 262156, 28, 0, 262157, 28, 0, 262158, 28, 0, 262159, 28, 0, 262160, 28, 0, 262161, 28, 0, 327690, 28, 0, 327691, 28, 0, 327692, 28, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="TileMap" parent="."]
+position = Vector2( 0, -16 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_y_sort = true
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Decoration" type="TileMap" parent="Objects"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Entrance" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 368, 152 )
+scene = "Factory Hallway"
+key = "locked"
+locked_notification = false
+door_visible = false
+
+[node name="Door" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 376, -176 )
+id = 1
+scene = "Factory Escape"
+locked_notification = false
+type = "factory"
+
+[node name="Player" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 368, 160 )
+
+[node name="NPC" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 376, -112 )
+character = "Strange Man"
+text = "You think you're smart child.
+But you're not.
+The door behind you is locked,
+the door in the front not.
+If you get out alive
+I'll let the man go and
+I'll stop my evil plans.
+If not I will continue and
+everyone will be replaced
+BY COOKIES"
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="Overlay" instance=ExtResource( 5 )]

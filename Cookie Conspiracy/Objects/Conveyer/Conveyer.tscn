@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/Conveyer/Conveyer4.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Conveyer/Conveyer3.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Conveyer/Conveyer1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Conveyer/Conveyer2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Conveyer/Conveyer.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="Conveyer" type="Area2D"]
+space_override = 1
+gravity_vec = Vector2( 1, 0 )
+gravity = 256.0
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

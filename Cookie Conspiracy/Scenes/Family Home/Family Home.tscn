@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Family Home/Family Home.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Town/Town.tres" type="TileSet" id=4]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/NPC/NPC.tscn" type="PackedScene" id=6]
+
+[node name="Family Home" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -262139, 28, 0, -262138, 28, 0, -262137, 28, 0, -262136, 28, 0, -262135, 28, 0, -262134, 28, 0, -262133, 28, 0, -262132, 28, 0, -262131, 28, 0, -262130, 28, 0, -262129, 28, 0, -196603, 28, 0, -196602, 26, 0, -196601, 26, 1, -196600, 26, 1, -196599, 26, 1, -196598, 26, 1, -196597, 26, 1, -196596, 26, 1, -196595, 26, 1, -196594, 26, 2, -196593, 28, 0, -131067, 28, 0, -131066, 26, 65536, -131065, 26, 65537, -131064, 26, 65537, -131063, 26, 65537, -131062, 26, 65537, -131061, 26, 65537, -131060, 26, 65537, -131059, 26, 65537, -131058, 26, 65538, -131057, 28, 0, -65531, 28, 0, -65530, 26, 131072, -65529, 26, 131073, -65528, 26, 131073, -65527, 26, 131073, -65526, 26, 131073, -65525, 26, 131073, -65524, 26, 131073, -65523, 26, 131073, -65522, 26, 131074, -65521, 28, 0, 5, 28, 0, 6, 21, 0, 7, 21, 1, 8, 21, 1, 9, 21, 1, 10, 21, 1, 11, 21, 1, 12, 21, 1, 13, 21, 1, 14, 21, 2, 15, 28, 0, 65541, 28, 0, 65542, 21, 65536, 65543, 21, 65537, 65544, 21, 65537, 65545, 21, 65537, 65546, 21, 65537, 65547, 21, 65537, 65548, 21, 65537, 65549, 21, 65537, 65550, 21, 65538, 65551, 28, 0, 131077, 28, 0, 131078, 21, 65536, 131079, 21, 65537, 131080, 21, 65537, 131081, 21, 65537, 131082, 21, 65537, 131083, 21, 65537, 131084, 21, 65537, 131085, 21, 65537, 131086, 21, 65538, 131087, 28, 0, 196613, 28, 0, 196614, 21, 131072, 196615, 21, 131073, 196616, 21, 131073, 196617, 21, 131073, 196618, 21, 131073, 196619, 21, 131073, 196620, 21, 131073, 196621, 21, 131073, 196622, 21, 131074, 196623, 28, 0, 262149, 28, 0, 262150, 28, 0, 262151, 28, 0, 262152, 28, 0, 262153, 28, 0, 262154, 28, 0, 262155, 28, 0, 262156, 28, 0, 262157, 28, 0, 262158, 28, 0, 262159, 28, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="TileMap" parent="."]
+position = Vector2( 0, -16 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 6, 37, 0, 9, 32, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Decoration" type="TileMap" parent="Objects"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 336, 14 )
+id = 2
+
+[node name="Mother" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 457.001, 27.9998 )
+character = "Mother"
+text = "Pregnant women
+shouldn't eat cookies"
+flip_direction = true
+fixed_direction = true
+
+[node name="Father" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 393.001, 26.4998 )
+character = "Father"
+text = "Did you ever
+eaten a cookie
+from this strange factory?"
+fixed_direction = true
+
+[node name="Player" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 336, 4.49995 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="Overlay" instance=ExtResource( 5 )]

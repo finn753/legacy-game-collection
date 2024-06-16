@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Door/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Home/Home.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Town/Town.tres" type="TileSet" id=4]
+[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/NPC/NPC.tscn" type="PackedScene" id=6]
+
+[node name="Home" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -262139, 28, 0, -262138, 28, 0, -262137, 28, 0, -262136, 28, 0, -262135, 28, 0, -262134, 28, 0, -262133, 28, 0, -262132, 28, 0, -262131, 28, 0, -262130, 28, 0, -262129, 28, 0, -196603, 28, 0, -196602, 24, 0, -196601, 24, 1, -196600, 24, 1, -196599, 24, 1, -196598, 24, 1, -196597, 24, 1, -196596, 24, 1, -196595, 24, 1, -196594, 24, 2, -196593, 28, 0, -131067, 28, 0, -131066, 24, 65536, -131065, 24, 65537, -131064, 24, 65537, -131063, 24, 65537, -131062, 24, 65537, -131061, 24, 65537, -131060, 24, 65537, -131059, 24, 65537, -131058, 24, 65538, -131057, 28, 0, -65531, 28, 0, -65530, 24, 131072, -65529, 24, 131073, -65528, 24, 131073, -65527, 24, 131073, -65526, 24, 131073, -65525, 24, 131073, -65524, 24, 131073, -65523, 24, 131073, -65522, 24, 131074, -65521, 28, 0, 5, 28, 0, 6, 19, 0, 7, 19, 1, 8, 19, 1, 9, 19, 1, 10, 19, 1, 11, 19, 1, 12, 19, 1, 13, 19, 1, 14, 19, 2, 15, 28, 0, 65541, 28, 0, 65542, 19, 65536, 65543, 19, 65537, 65544, 19, 65537, 65545, 19, 65537, 65546, 19, 65537, 65547, 19, 65537, 65548, 19, 65537, 65549, 19, 65537, 65550, 19, 65538, 65551, 28, 0, 131077, 28, 0, 131078, 19, 65536, 131079, 19, 65537, 131080, 19, 65537, 131081, 19, 65537, 131082, 19, 65537, 131083, 19, 65537, 131084, 19, 65537, 131085, 19, 65537, 131086, 19, 65538, 131087, 28, 0, 196613, 28, 0, 196614, 19, 131072, 196615, 19, 131073, 196616, 19, 131073, 196617, 19, 131073, 196618, 19, 131073, 196619, 19, 131073, 196620, 19, 131073, 196621, 19, 131073, 196622, 19, 131074, 196623, 28, 0, 262149, 28, 0, 262150, 28, 0, 262151, 28, 0, 262152, 28, 0, 262153, 28, 0, 262154, 28, 0, 262155, 28, 0, 262156, 28, 0, 262157, 28, 0, 262158, 28, 0, 262159, 28, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="TileMap" parent="."]
+position = Vector2( 0, -16 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( 6, 29, 0, 131086, 33, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Decoration" type="TileMap" parent="Objects"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 336, 14 )
+
+[node name="Mom" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 264, 64 )
+text = "Wake up Mardi,
+it's snowing"
+
+[node name="Player" parent="Objects" instance=ExtResource( 1 )]
+position = Vector2( 240, 16 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="Overlay" instance=ExtResource( 5 )]

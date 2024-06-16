@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Objects/Door/Door1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Door/Door2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Door/Door.gd" type="Script" id=3]
+[ext_resource path="res://UI/Hint/Space2.png" type="Texture" id=4]
+[ext_resource path="res://UI/Hint/Controler A.png" type="Texture" id=5]
+[ext_resource path="res://UI/Hint/Controler Circle.png" type="Texture" id=6]
+[ext_resource path="res://UI/Hint/Controler B.png" type="Texture" id=7]
+[ext_resource path="res://UI/Hint/Space1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Door/Factory Door2.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Door/Factory Door1.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "factoryopen",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "factoryclosed",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 24 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Computer",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Xbox",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Switch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Dualshock",
+"speed": 5.0
+} ]
+
+[node name="Door" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -24 )
+frames = SubResource( 1 )
+animation = "open"
+offset = Vector2( 0, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Hint" type="AnimatedSprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+light_mask = 3
+position = Vector2( 24, -16 )
+z_index = 1
+frames = SubResource( 3 )
+animation = "Computer"
+frame = 1
+playing = true
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]

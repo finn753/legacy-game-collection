@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://UI/Notebook/Notebook.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Hint/E.png" type="Texture" id=3]
+[ext_resource path="res://UI/Hint/Notebook.png" type="Texture" id=4]
+
+[sub_resource type="InputEventAction" id=1]
+action = "inventory"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Notebook" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 0, 96 )
+scale = Vector2( 0.9, 0.9 )
+
+[node name="Button Notebook" type="Button" parent="."]
+margin_right = 36.0
+margin_bottom = 30.0
+rect_scale = Vector2( 4, 4 )
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+shortcut = SubResource( 2 )
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" type="Sprite" parent="Button Notebook"]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 40, 16 )
+texture = ExtResource( 3 )
+
+[node name="Notifications" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -1080.0
+margin_right = -64.0
+margin_bottom = -56.0
+grow_vertical = 0
+rect_clip_content = true
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Button Notebook" to="." method="_on_Button_Notebook_button_down"]
