@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/NPC/Snowman.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Objects/NPC/NPC.gd" type="Script" id=2]
+[ext_resource path="res://Objects/NPC/Assets/Original/Ding.wav" type="AudioStream" id=8]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 9.0
+
+[node name="NPC" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "fall"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
+
+[node name="STween" type="Tween" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 48.0
+margin_bottom = -7.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hello"
+
+[node name="Coyote" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="BufferJump" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="ForceJump" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Desinterest" type="Timer" parent="."]
+one_shot = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 4.17233e-07, 4.17233e-07 )
+rect = Rect2( -1, 3, 2, 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+pitch_scale = 1.5
+max_distance = 258.0
+
+[connection signal="timeout" from="Coyote" to="." method="_on_Coyote_timeout"]
+[connection signal="timeout" from="Desinterest" to="." method="_on_Desinterest_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

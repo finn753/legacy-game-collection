@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Decoration/Sign/Sign.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/yoster.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 11
+outline_color = Color( 1, 1, 0.921569, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Label" type="Label"]
+margin_right = 16.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0.913725, 0.94902, 0.956863, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "24"
+align = 1
+
+[node name="Sign" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 8, 0 )
+texture = ExtResource( 1 )

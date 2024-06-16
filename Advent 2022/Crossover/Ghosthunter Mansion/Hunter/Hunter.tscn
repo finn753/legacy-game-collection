@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Crossover/Ghosthunter Mansion/Hunter/Hunter.gd" type="Script" id=1]
+[ext_resource path="res://Objects/DeathTrigger/DeathTrigger.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Crossover/Ghosthunter Mansion/Hunter/Hunter.png" type="Texture" id=3]
+
+[node name="Hunter" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Hunter" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="DeathTrigger" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Desinterest" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+
+[connection signal="timeout" from="Desinterest" to="." method="_on_Desinterest_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

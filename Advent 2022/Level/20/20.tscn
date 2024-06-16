@@ -1,0 +1,187 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Level/20/20.gd" type="Script" id=1]
+[ext_resource path="res://UI/Transition/Transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/DialogBox/DialogBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://World/Foreground.tres" type="TileSet" id=4]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Advent Door/Advent Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/DeathTrigger/DeathTrigger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Pause/Pause.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/SkyLantern/SkyLantern.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/CoinCounter/CoinCounter.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Coin/Coin.tscn" type="PackedScene" id=11]
+
+[node name="20" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.313726, 0.160784, 0.419608, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMap" type="TileMap" parent="."]
+modulate = Color( 0.619608, 0.47451, 0.721569, 1 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -262116, 1, 0, -262115, 1, 1, -262114, 1, 1, -262113, 1, 2, -196581, 1, 0, -196580, 1, 196608, -196579, 1, 65537, -196578, 1, 65537, -196577, 1, 196610, -196576, 1, 2, -131045, 1, 65536, -131044, 1, 65537, -131043, 1, 65537, -131042, 1, 65537, -131041, 1, 65537, -131040, 1, 65538, -65510, 1, 0, -65509, 1, 196608, -65508, 1, 65537, -65507, 1, 65537, -65506, 1, 65537, -65505, 1, 65537, -65504, 1, 65538, 26, 1, 65536, 27, 1, 65537, 28, 1, 65537, 29, 1, 65537, 30, 1, 65537, 31, 1, 65537, 32, 1, 65538, 65562, 1, 65536, 65563, 1, 65537, 65564, 1, 65537, 65565, 1, 65537, 65566, 1, 65537, 65567, 1, 65537, 65568, 1, 196610, 65569, 1, 2, 131098, 1, 65536, 131099, 1, 65537, 131100, 1, 65537, 131101, 1, 65537, 131102, 1, 65537, 131103, 1, 65537, 131104, 1, 65537, 131105, 1, 65538, 196633, 1, 0, 196634, 1, 196608, 196635, 1, 65537, 196636, 1, 65537, 196637, 1, 65537, 196638, 1, 65537, 196639, 1, 65537, 196640, 1, 65537, 196641, 1, 65538, 262169, 1, 65536, 262170, 1, 65537, 262171, 1, 65537, 262172, 1, 65537, 262173, 1, 65537, 262174, 1, 65537, 262175, 1, 65537, 262176, 1, 65537, 262177, 1, 65538, 327705, 1, 65536, 327706, 1, 65537, 327707, 1, 65537, 327708, 1, 65537, 327709, 1, 65537, 327710, 1, 65537, 327711, 1, 65537, 327712, 1, 65537, 327713, 1, 65538, 393241, 1, 65536, 393242, 1, 65537, 393243, 1, 65537, 393244, 1, 65537, 393245, 1, 65537, 393246, 1, 65537, 393247, 1, 65537, 393248, 1, 65537, 393249, 1, 65538, 458777, 1, 65536, 458778, 1, 65537, 458779, 1, 65537, 458780, 1, 65537, 458781, 1, 65537, 458782, 1, 65537, 458783, 1, 65537, 458784, 1, 65537, 458785, 1, 65538, 524312, 1, 0, 524313, 1, 196608, 524314, 1, 65537, 524315, 1, 65537, 524316, 1, 65537, 524317, 1, 65537, 524318, 1, 65537, 524319, 1, 65537, 524320, 1, 65537, 524321, 1, 65538, 589848, 1, 65536, 589849, 1, 65537, 589850, 1, 65537, 589851, 1, 65537, 589852, 1, 65537, 589853, 1, 65537, 589854, 1, 65537, 589855, 1, 65537, 589856, 1, 65537, 589857, 1, 65538, 655384, 1, 65536, 655385, 1, 65537, 655386, 1, 65537, 655387, 1, 65537, 655388, 1, 65537, 655389, 1, 65537, 655390, 1, 65537, 655391, 1, 65537, 655392, 1, 65537, 655393, 1, 65538, 720920, 1, 65536, 720921, 1, 65537, 720922, 1, 65537, 720923, 1, 65537, 720924, 1, 65537, 720925, 1, 65537, 720926, 1, 65537, 720927, 1, 65537, 720928, 1, 65537, 720929, 1, 65538, 786456, 1, 65536, 786457, 1, 65537, 786458, 1, 65537, 786459, 1, 65537, 786460, 1, 65537, 786461, 1, 65537, 786462, 1, 65537, 786463, 1, 65537, 786464, 1, 65537, 786465, 1, 65538, 851992, 1, 65536, 851993, 1, 65537, 851994, 1, 65537, 851995, 1, 65537, 851996, 1, 65537, 851997, 1, 65537, 851998, 1, 65537, 851999, 1, 65537, 852000, 1, 65537, 852001, 1, 65538, 917528, 1, 65536, 917529, 1, 65537, 917530, 1, 65537, 917531, 1, 65537, 917532, 1, 65537, 917533, 1, 65537, 917534, 1, 65537, 917535, 1, 65537, 917536, 1, 65537, 917537, 1, 65538, 983064, 1, 65536, 983065, 1, 65537, 983066, 1, 65537, 983067, 1, 65537, 983068, 1, 65537, 983069, 1, 65537, 983070, 1, 65537, 983071, 1, 65537, 983072, 1, 65537, 983073, 1, 65538, 1048600, 1, 65536, 1048601, 1, 65537, 1048602, 1, 65537, 1048603, 1, 65537, 1048604, 1, 65537, 1048605, 1, 65537, 1048606, 1, 65537, 1048607, 1, 65537, 1048608, 1, 65537, 1048609, 1, 65538, 1114136, 1, 65536, 1114137, 1, 65537, 1114138, 1, 65537, 1114139, 1, 65537, 1114140, 1, 65537, 1114141, 1, 65537, 1114142, 1, 65537, 1114143, 1, 65537, 1114144, 1, 65537, 1114145, 1, 65538, 1179672, 1, 65536, 1179673, 1, 65537, 1179674, 1, 65537, 1179675, 1, 65537, 1179676, 1, 65537, 1179677, 1, 65537, 1179678, 1, 65537, 1179679, 1, 65537, 1179680, 1, 65537, 1179681, 1, 65538, 1245208, 1, 65536, 1245209, 1, 65537, 1245210, 1, 65537, 1245211, 1, 65537, 1245212, 1, 65537, 1245213, 1, 65537, 1245214, 1, 65537, 1245215, 1, 65537, 1245216, 1, 65537, 1245217, 1, 65538, 1310744, 1, 131072, 1310745, 1, 131073, 1310746, 1, 131073, 1310747, 1, 131073, 1310748, 1, 131073, 1310749, 1, 131073, 1310750, 1, 131073, 1310751, 1, 131073, 1310752, 1, 131073, 1310753, 1, 131074 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WorldMap" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1245209, 1, 0, 1245210, 1, 1, 1245211, 1, 1, 1245212, 1, 1, 1245213, 1, 1, 1245214, 1, 1, 1245215, 1, 1, 1245216, 1, 2, 1310744, 1, 0, 1310745, 1, 196608, 1310746, 1, 65537, 1310747, 1, 65537, 1310748, 1, 65537, 1310749, 1, 65537, 1310750, 1, 65537, 1310751, 1, 65537, 1310752, 1, 196610, 1310753, 1, 2, 1376280, 1, 65536, 1376281, 1, 65537, 1376282, 1, 65537, 1376283, 1, 65537, 1376284, 1, 65537, 1376285, 1, 65537, 1376286, 1, 65537, 1376287, 1, 65537, 1376288, 1, 65537, 1376289, 1, 65538, 1441816, 1, 65536, 1441817, 1, 65537, 1441818, 1, 65537, 1441819, 1, 65537, 1441820, 1, 65537, 1441821, 1, 65537, 1441822, 1, 65537, 1441823, 1, 65537, 1441824, 1, 65537, 1441825, 1, 65538, 1507352, 1, 65536, 1507353, 1, 65537, 1507354, 1, 65537, 1507355, 1, 65537, 1507356, 1, 65537, 1507357, 1, 65537, 1507358, 1, 65537, 1507359, 1, 65537, 1507360, 1, 65537, 1507361, 1, 65538, 1572888, 1, 131072, 1572889, 1, 262144, 1572890, 1, 65537, 1572891, 1, 65537, 1572892, 1, 65537, 1572893, 1, 65537, 1572894, 1, 65537, 1572895, 1, 65537, 1572896, 1, 262146, 1572897, 1, 131074, 1638425, 1, 131072, 1638426, 1, 131073, 1638427, 1, 131073, 1638428, 1, 131073, 1638429, 1, 131073, 1638430, 1, 131073, 1638431, 1, 131073, 1638432, 1, 131074 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Advent Door" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 464, 296 )
+
+[node name="SkyLantern" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 352, 272 )
+
+[node name="SkyLantern2" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 576, 272 )
+
+[node name="SkyLantern3" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 464, 176 )
+
+[node name="SkyLantern4" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 392, 136 )
+
+[node name="SkyLantern7" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 304, 56 )
+
+[node name="Exit5" parent="Objects/SkyLantern7" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="SkyLantern10" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 160, -32 )
+
+[node name="SkyLantern11" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 256, -168 )
+
+[node name="Exit" parent="Objects/SkyLantern11" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="SkyLantern13" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 208, 208 )
+
+[node name="Exit5" parent="Objects/SkyLantern13" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="SkyLantern15" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 88, 264 )
+
+[node name="SkyLantern14" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 768, 248 )
+
+[node name="SkyLantern8" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 680, 64 )
+
+[node name="Exit3" parent="Objects/SkyLantern8" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="SkyLantern9" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 824, -24 )
+
+[node name="SkyLantern12" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 728, -128 )
+
+[node name="Exit2" parent="Objects/SkyLantern12" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="SkyLantern5" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 616, 112 )
+
+[node name="SkyLantern6" parent="Objects" instance=ExtResource( 9 )]
+position = Vector2( 504, 48 )
+
+[node name="Exit4" parent="Objects/SkyLantern6" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+exit = true
+
+[node name="DeathTrigger" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 512, 592 )
+scale = Vector2( 512, 1 )
+
+[node name="Coin" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 464, 152 )
+
+[node name="Coin2" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 256, -192 )
+
+[node name="Coin3" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 680, 40 )
+
+[node name="Coin5" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 616, -152 )
+
+[node name="Coin6" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 360, -24 )
+
+[node name="Coin7" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 96, 152 )
+
+[node name="Coin8" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 784, -240 )
+
+[node name="Coin4" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 504, -64 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 464, 304 )
+can_climb = true
+can_double_jump = true
+can_glide = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" parent="UI" instance=ExtResource( 3 )]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -168.0
+margin_right = -16.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 496, 128 )
+
+[node name="CoinCounter" parent="UI" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 16.0
+margin_right = 142.0
+margin_bottom = 49.0
+
+[node name="Transition" parent="UI" instance=ExtResource( 2 )]
+visible = false
+start_closed = true
+
+[node name="Pause" parent="UI" instance=ExtResource( 8 )]
+visible = false
