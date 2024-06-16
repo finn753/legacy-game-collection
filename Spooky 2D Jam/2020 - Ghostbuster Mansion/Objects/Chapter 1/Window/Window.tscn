@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Chapter 1/Window/Window-Light.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Chapter 1/Window/Window.gd" type="Script" id=2]
+
+
+[node name="Window" type="Light2D"]
+scale = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+mode = 2
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -3.94619, -14.9773, 3.92037, -14.9773, 7.19074, -7.9946, 7.10236, 16.1354, -7.03978, 15.9586, -7.03978, -7.81783 )

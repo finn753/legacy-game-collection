@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://UI/Menu/Chapter 1.png" type="Texture" id=1]
+[ext_resource path="res://Entity/Chapter 1/Ghostbuster/Light.png" type="Texture" id=2]
+[ext_resource path="res://UI/Menu/Menu.gd" type="Script" id=3]
+[ext_resource path="res://UI/Menu/Credits.png" type="Texture" id=4]
+[ext_resource path="res://UI/Fonts/yoster.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Entity/Player/Player.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 1
+font_data = ExtResource( 5 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+light_mode = 2
+
+[sub_resource type="DynamicFont" id=4]
+size = 1
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 5 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Screen" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="Screen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="Screen"]
+texture = ExtResource( 2 )
+texture_scale = 8.0
+mode = 2
+
+[node name="Ghost" type="Node2D" parent="Screen"]
+position = Vector2( 144, 176 )
+
+[node name="Player" parent="Screen/Ghost" instance=ExtResource( 6 )]
+
+[node name="Label" type="Label" parent="."]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 195.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Ghostbuster
+Mansion"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chapter 1" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 256.0
+margin_top = 288.0
+margin_right = 768.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 512, 64 )
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Sprite" parent="Chapter 1"]
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 256, 32 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+
+[node name="Play Light" type="Sprite" parent="Chapter 1"]
+material = SubResource( 3 )
+position = Vector2( 256, 32 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+
+[node name="Credits" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 704.0
+margin_top = 528.0
+margin_right = 960.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 256, 32 )
+rect_clip_content = true
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Sprite" parent="Credits"]
+modulate = Color( 1, 1, 1, 0.0980392 )
+position = Vector2( 128, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Credits Light" type="Sprite" parent="Credits"]
+material = SubResource( 3 )
+position = Vector2( 128, 16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Version" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 568.0
+margin_right = 528.0
+margin_bottom = 669.0
+custom_fonts/font = SubResource( 5 )
+text = "Version"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chapter 2 - Ad" type="Label" parent="."]
+margin_top = 368.0
+margin_right = 1024.0
+margin_bottom = 469.0
+custom_fonts/font = SubResource( 6 )
+text = "Chapter 2 - Coming soon"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Chapter 1" to="." method="_on_Chapter_1_button_down"]
+[connection signal="mouse_entered" from="Chapter 1" to="." method="_on_Chapter_1_mouse_entered"]
+[connection signal="mouse_exited" from="Chapter 1" to="." method="_on_Chapter_1_mouse_exited"]
+[connection signal="button_down" from="Credits" to="." method="_on_Credits_button_down"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_Credits_mouse_entered"]
+[connection signal="mouse_exited" from="Credits" to="." method="_on_Credits_mouse_exited"]
