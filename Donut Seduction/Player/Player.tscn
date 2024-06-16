@@ -1,0 +1,370 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Player/Pink Donut4.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Pink Donut1.png" type="Texture" id=3]
+[ext_resource path="res://Player/Pink Donut3.png" type="Texture" id=4]
+[ext_resource path="res://Player/Pink Donut2.png" type="Texture" id=5]
+[ext_resource path="res://Player/Pink Donut14.png" type="Texture" id=6]
+[ext_resource path="res://Player/Pink Donut6.png" type="Texture" id=7]
+[ext_resource path="res://Audio/SoundManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Pink Donut12.png" type="Texture" id=9]
+[ext_resource path="res://Player/Pink Donut13.png" type="Texture" id=10]
+[ext_resource path="res://Player/Pink Donut8.png" type="Texture" id=11]
+[ext_resource path="res://Player/Pink Donut9.png" type="Texture" id=12]
+[ext_resource path="res://Player/Pink Donut7.png" type="Texture" id=13]
+[ext_resource path="res://Player/Pink Donut11.png" type="Texture" id=14]
+[ext_resource path="res://Player/Pink Donut10.png" type="Texture" id=15]
+[ext_resource path="res://Player/Pink Donut5.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "1hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Spawn",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "3hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": false,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "4hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "0hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "5hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "2hit",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 14.0
+
+[sub_resource type="Animation" id=7]
+resource_name = "Boost"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.13, 0.225097, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.28, 0.225097, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Heal"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.550368, -0.25, 0, 0.25, 0, 0.600406, -1.11, 0.0314443, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.550368, -0.25, 0, 0.25, 0, 0.600406, -1.11, 0.030624, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hit:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Slow"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.3, -0.226402, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.16, -0.226402, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Start"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.6, -2.56, -0.260236, 0.25, 0.2 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.7, -0.25, 0, 0.25, 0, 0.6, -2.48, -0.26755, 0.25, 0.2 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Boost"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.13, 0.225097, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.28, 0.225097, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Heal"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.550368, -0.25, 0, 0.25, 0, 0.600406, -1.11, 0.0314443, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.550368, -0.25, 0, 0.25, 0, 0.600406, -1.11, 0.030624, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Slow"
+length = 4.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Camera2D:zoom:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.3, -0.226402, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Camera2D:zoom:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0.6, -2.16, -0.226402, 0.25, 0 ),
+"times": PoolRealArray( 0, 4 )
+}
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 18
+collision_mask = 31
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="Heal" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 32.0
+gravity = Vector2( 0, 0 )
+radial_accel = -32.0
+tangential_accel = 16.0
+scale_amount = 1.25
+scale_amount_random = 0.25
+
+[node name="Hit" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.25
+explosiveness = 1.0
+lifetime_randomness = 0.25
+local_coords = false
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 128.0
+initial_velocity_random = 0.5
+angular_velocity = 720.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+scale_amount = 1.25
+scale_amount_random = 0.25
+color = Color( 0.721569, 0.435294, 0.313726, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "5"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="SoundManager" parent="." instance=ExtResource( 8 )]
+bus = "Player"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.05
+drag_margin_top = 0.05
+drag_margin_right = 0.05
+drag_margin_bottom = 0.05
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Start"
+playback_speed = 8.0
+anims/Boost = SubResource( 7 )
+anims/Heal = SubResource( 6 )
+anims/Hit = SubResource( 4 )
+anims/Slow = SubResource( 8 )
+anims/Start = SubResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 1.0
+playback_speed = 8.0
+anims/Boost = SubResource( 9 )
+anims/Heal = SubResource( 10 )
+anims/Slow = SubResource( 12 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

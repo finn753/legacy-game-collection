@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Style/Button Normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://UI/Style/Button Hover.tres" type="StyleBox" id=2]
+[ext_resource path="res://UI/Style/Button Pressed.tres" type="StyleBox" id=3]
+[ext_resource path="res://UI/Style/Button Focus.tres" type="StyleBox" id=4]
+[ext_resource path="res://UI/Style/Button Disabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://UI/Style/Button.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hover"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.25, -0.7, 0.5, 0.25, -0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.25, -0.7, 0.5, 0.25, -0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "UnHover"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.25, -0.25, 0, 0.25, 0, 1, -0.7, -0.5, 0.25, 0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.25, -0.25, 0, 0.25, 0, 1, -0.7, -0.5, 0.25, 0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[node name="Button" type="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -896.0
+margin_bottom = -536.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 64, 32 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.5
+playback_speed = 2.0
+anims/Hover = SubResource( 1 )
+anims/UnHover = SubResource( 2 )
+
+[connection signal="button_down" from="." to="." method="_on_Button_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Button_mouse_exited"]

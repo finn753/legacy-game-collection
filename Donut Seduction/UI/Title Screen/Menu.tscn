@@ -1,0 +1,373 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://UI/Menus/Settings/Settings.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Decoration/Flower/Flower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Title Screen/Menu.gd" type="Script" id=3]
+[ext_resource path="res://UI/Title Screen/Version.gd" type="Script" id=4]
+[ext_resource path="res://UI/Menus/Settings/Settings.png" type="Texture" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Style/Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Item Box/ItemBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/Placement Indicator/Placement Indicator.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "StartParticle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CPUParticles2D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CPUParticles2D3:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://UI/Fonts/yoster.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+outline_size = 4
+font_data = SubResource( 2 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0, 0.0, -2.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 768, -0.25, 0, 0.25, 0, 16, -1.01, -196, 0.308846, 59.9345 ),
+"times": PoolRealArray( 0.5, 1.5 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Idle", -1, 0.25, false ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "SlideIn"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -256, -0.25, 0, 0.25, 0, 24, -0.529966, 142.06, 0.108094, -28.9752 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:anchor_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 1, -0.580236, -0.337801, 0.25, 0.145545 ),
+"times": PoolRealArray( 1, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:anchor_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 1, -0.587247, -0.340239, 0.25, 0.144845 ),
+"times": PoolRealArray( 1, 2 )
+}
+
+[node name="Menu" type="ParallaxBackground"]
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.964706, 0.458824, 0.478431, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Background"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/Control"]
+position = Vector2( 0, -32 )
+amount = 32
+lifetime = 6.0
+emission_shape = 2
+emission_rect_extents = Vector2( 512, 1 )
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.25
+linear_accel = 100.0
+linear_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 8.0
+color = Color( 1, 0.321569, 0.466667, 1 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Background/Control"]
+position = Vector2( 0, -32 )
+amount = 32
+lifetime = 6.0
+emission_shape = 2
+emission_rect_extents = Vector2( 512, 1 )
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.25
+linear_accel = 100.0
+linear_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 8.0
+color = Color( 0.960784, 1, 0.909804, 1 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Background/Control"]
+position = Vector2( 0, -32 )
+amount = 32
+lifetime = 6.0
+emission_shape = 2
+emission_rect_extents = Vector2( 512, 1 )
+direction = Vector2( 0, 1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 150.0
+initial_velocity_random = 0.25
+linear_accel = 100.0
+linear_accel_random = 1.0
+angle = 90.0
+angle_random = 1.0
+scale_amount = 8.0
+color = Color( 0.572549, 0.909804, 0.752941, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background/Control"]
+autoplay = "StartParticle"
+anims/StartParticle = SubResource( 1 )
+
+[node name="Flower" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 176, 232 )
+
+[node name="Flower16" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 72, 312 )
+
+[node name="Flower6" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 456, 160 )
+
+[node name="Flower5" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 24, 80 )
+
+[node name="Flower2" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 600, 336 )
+
+[node name="Flower7" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 808, 184 )
+
+[node name="Flower11" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 968, 72 )
+
+[node name="Flower12" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 984, 256 )
+
+[node name="Flower13" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 800, 376 )
+
+[node name="Flower14" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 752, 528 )
+
+[node name="Flower8" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 904, 480 )
+
+[node name="Flower9" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 640, 432 )
+
+[node name="Flower3" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 320, 432 )
+
+[node name="Flower15" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 328, 296 )
+
+[node name="Flower10" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 256, 552 )
+
+[node name="Flower4" parent="Background" instance=ExtResource( 2 )]
+position = Vector2( 104, 464 )
+
+[node name="Item Box" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 512, 272 )
+
+[node name="Item Box2" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 912, 168 )
+
+[node name="Item Box3" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 896, 432 )
+
+[node name="Item Box4" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 224, 176 )
+
+[node name="Item Box5" parent="Background" instance=ExtResource( 8 )]
+position = Vector2( 144, 456 )
+
+[node name="Placement Indicator" parent="Background" instance=ExtResource( 9 )]
+position = Vector2( 512, 712 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 664 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -369.5
+margin_top = 30.0346
+margin_right = 369.5
+margin_bottom = 81.0
+rect_pivot_offset = Vector2( 369, 40 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Donut Seduction"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+autoplay = "SlideIn"
+anims/Idle = SubResource( 7 )
+anims/SlideIn = SubResource( 4 )
+
+[node name="Version" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -56.0
+margin_right = 79.0
+margin_bottom = -23.0
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+text = "X.X"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Version"]
+autoplay = "SlideIn"
+anims/SlideIn = SubResource( 5 )
+
+[node name="Settings" parent="." instance=ExtResource( 1 )]
+
+[node name="Play" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_top = 1.2
+anchor_right = 0.5
+anchor_bottom = 1.2
+margin_left = -88.0
+margin_top = -80.0
+margin_right = 88.0
+margin_bottom = -27.0
+rect_pivot_offset = Vector2( 88, 26 )
+text = "Play"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Play"]
+autoplay = "SlideIn"
+anims/SlideIn = SubResource( 6 )
+
+[node name="SettingsButton" parent="." instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 20, 20 )
+icon = ExtResource( 5 )
+flat = true
+expand_icon = true
+
+[connection signal="button_down" from="Play" to="." method="_on_Play_button_down"]
+[connection signal="button_down" from="SettingsButton" to="." method="_on_SettingsButton_button_down"]

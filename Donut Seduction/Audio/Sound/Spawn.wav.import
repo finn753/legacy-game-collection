@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spawn.wav-e8f08d7c8514b2b53021e7a6bffcdf07.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/Spawn.wav"
+dest_files=[ "res://.import/Spawn.wav-e8f08d7c8514b2b53021e7a6bffcdf07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

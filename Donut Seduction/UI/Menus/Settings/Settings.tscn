@@ -1,0 +1,449 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://UI/Menus/Settings/Settings.gd" type="Script" id=1]
+[ext_resource path="res://UI/Fonts/yoster.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Style/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Score Indicator/Score Indicator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Style/Slider.tres" type="StyleBox" id=5]
+[ext_resource path="res://UI/Style/Grabber.tres" type="StyleBox" id=6]
+[ext_resource path="res://UI/Style/Point2.png" type="Texture" id=7]
+[ext_resource path="res://UI/Style/Point3.png" type="Texture" id=8]
+[ext_resource path="res://UI/Style/Point1.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Hide"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Background:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.564706, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Highscore:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 512, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Settiings:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -116, -0.25, 0, 0.25, 0, 386, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Settiings:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Highscore:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Exit:anchor_left")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Exit:anchor_right")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -0.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Exit:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Background:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Volume Control:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Volume Control:anchor_bottom")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Volume Control:anchor_top")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=2]
+length = 2.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Background:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.564706, -0.551577, 0.571459, 0.318257, -0.329729 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Settiings:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 512, -0.25, 0, 0.25, 0, -116, -0.650395, -433.188, 0.00944608, 6.29146 ),
+"times": PoolRealArray( 0.5, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Highscore:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 384, -0.25, 0, 0.25, 0, 0, -0.411609, -308.399, 0.00839823, 6.2924 ),
+"times": PoolRealArray( 1, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Settiings:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.5, 1.5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Highscore:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1, 2 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Exit:anchor_left")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( -0.2, -0.25, 0, 0.25, 0, 0, -0.7, 0.5, 0.25, -0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Exit:anchor_right")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( -0.2, -0.25, 0, 0.25, 0, 0, -0.7, 0.5, 0.25, -0.2 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Exit:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Background:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true ]
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Volume Control:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.5, 2.5 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Volume Control:anchor_top")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 2, -0.25, 0, 0.25, 0, 1, -0.7, -0.5, 0.25, 0.2 ),
+"times": PoolRealArray( 1.5, 2.5 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Volume Control:anchor_bottom")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 2, -0.25, 0, 0.25, 0, 1, -0.7, -0.5, 0.25, 0.2 ),
+"times": PoolRealArray( 1.5, 2.5 )
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 72
+outline_size = 3
+outline_color = Color( 0.960784, 1, 0.909804, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "menu"
+pressed = true
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[node name="Settings" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_default_blend_time = 0.2
+playback_speed = 1.5
+anims/Hide = SubResource( 1 )
+anims/Show = SubResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settiings" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = 386.0
+margin_right = 168.0
+margin_bottom = -44.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Highscore" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = 512.0
+margin_right = 0.0
+margin_bottom = 16.5
+text = "score"
+highscore = true
+
+[node name="Exit" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = -0.2
+anchor_right = -0.2
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 24, 24 )
+shortcut = SubResource( 5 )
+text = "X"
+
+[node name="Volume Control" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 2.0
+anchor_right = 0.5
+anchor_bottom = 2.0
+margin_left = -144.0
+margin_top = -224.0
+margin_right = 144.0
+margin_bottom = -16.0
+custom_constants/separation = 32
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Master Volume" type="HSlider" parent="Volume Control"]
+margin_top = 60.0
+margin_right = 288.0
+margin_bottom = 68.0
+custom_icons/grabber_disabled = ExtResource( 8 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = ExtResource( 5 )
+custom_styles/grabber_area_highlight = ExtResource( 6 )
+custom_styles/grabber_area = ExtResource( 6 )
+max_value = 1.0
+step = 0.013
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Volume Control/Master Volume"]
+margin_left = -72.0
+margin_top = -4.0
+margin_right = 52.0
+margin_bottom = 29.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+text = "Master"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound Volume" type="HSlider" parent="Volume Control"]
+margin_top = 100.0
+margin_right = 288.0
+margin_bottom = 108.0
+custom_icons/grabber_disabled = ExtResource( 8 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = ExtResource( 5 )
+custom_styles/grabber_area_highlight = ExtResource( 6 )
+custom_styles/grabber_area = ExtResource( 6 )
+max_value = 1.0
+step = 0.013
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Volume Control/Sound Volume"]
+margin_left = -72.0
+margin_top = -4.0
+margin_right = 52.0
+margin_bottom = 29.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+text = "Sound"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music Volume" type="HSlider" parent="Volume Control"]
+margin_top = 140.0
+margin_right = 288.0
+margin_bottom = 148.0
+custom_icons/grabber_disabled = ExtResource( 8 )
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = ExtResource( 5 )
+custom_styles/grabber_area_highlight = ExtResource( 6 )
+custom_styles/grabber_area = ExtResource( 6 )
+max_value = 1.0
+step = 0.013
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Volume Control/Music Volume"]
+margin_left = -72.0
+margin_top = -4.0
+margin_right = 52.0
+margin_bottom = 29.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
+text = "Music"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Exit" to="." method="_on_Exit_button_down"]
+[connection signal="value_changed" from="Volume Control/Master Volume" to="." method="_on_Master_Volume_value_changed"]
+[connection signal="value_changed" from="Volume Control/Sound Volume" to="." method="_on_Sound_Volume_value_changed"]
+[connection signal="value_changed" from="Volume Control/Music Volume" to="." method="_on_Music_Volume_value_changed"]

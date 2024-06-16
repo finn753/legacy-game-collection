@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UnHover.wav-90a8b8c44e8df18182f2bd7cb31ca32a.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/UnHover.wav"
+dest_files=[ "res://.import/UnHover.wav-90a8b8c44e8df18182f2bd7cb31ca32a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
