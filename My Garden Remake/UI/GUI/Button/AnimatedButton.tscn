@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/GUI/Button/DirtStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://UI/GUI/Button/AnimatedButton.gd" type="Script" id=2]
+[ext_resource path="res://UI/GUI/Button/Deselect.wav" type="AudioStream" id=3]
+[ext_resource path="res://UI/GUI/Button/Select.wav" type="AudioStream" id=4]
+[ext_resource path="res://UI/GUI/Button/Click.wav" type="AudioStream" id=5]
+
+[node name="AnimatedButton" type="Button"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -600.0
+margin_right = -320.0
+margin_bottom = -504.0
+rect_pivot_offset = Vector2( 96, 48 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = "Play"
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "UI"
+
+[node name="Deselect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "UI"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "UI"
+
+[connection signal="button_down" from="." to="." method="_on_AnimatedButton_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_AnimatedButton_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_AnimatedButton_mouse_exited"]

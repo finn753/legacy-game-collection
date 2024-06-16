@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Decoration/Rock/Rock.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Decoration/Rock/Rock1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Decoration/Rock/Rock2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Decoration/Rock/Rock3.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Decoration/Rock/Rock5.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Decoration/Rock/Rock4.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Decoration/Rock/Rock7.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Decoration/Rock/Rock6.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Decoration/Rock/Rock8.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Rock5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Rock3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Rock2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Rock4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Rock8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Rock7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Rock1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Rock6",
+"speed": 5.0
+} ]
+
+[node name="Rock" type="Node2D" groups=["Decoration"]]
+script = ExtResource( 2 )
+
+[node name="MovableObject" parent="." instance=ExtResource( 1 )]
+walkable = false
+pushable = true
+deletable = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovableObject"]
+position = Vector2( 8, 8 )
+frames = SubResource( 1 )
+animation = "Rock8"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

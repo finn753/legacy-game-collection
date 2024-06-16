@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Decoration/WoodTile/WoodTile.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Decoration/WoodTile/WoodTile2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Decoration/WoodTile/WoodTile3.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Decoration/WoodTile/WoodTile1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Decoration/WoodTile/WoodTile4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "WoodTile3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "WoodTile1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "WoodTile4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "WoodTile2",
+"speed": 5.0
+} ]
+
+[node name="WoodTile" type="Node2D" groups=["Decoration"]]
+script = ExtResource( 2 )
+
+[node name="MovableObject" parent="." instance=ExtResource( 1 )]
+pushable = true
+deletable = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovableObject"]
+position = Vector2( 8, 8 )
+frames = SubResource( 1 )
+animation = "WoodTile4"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

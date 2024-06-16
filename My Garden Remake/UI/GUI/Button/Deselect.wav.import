@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Deselect.wav-140d488b2d9a325a200e812be73aa518.sample"
+
+[deps]
+
+source_file="res://UI/GUI/Button/Deselect.wav"
+dest_files=[ "res://.import/Deselect.wav-140d488b2d9a325a200e812be73aa518.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

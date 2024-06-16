@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Decoration/Decoration.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Decoration" type="Node2D" groups=["Decoration"]]
+script = ExtResource( 2 )
+
+[node name="MovableObject" parent="." instance=ExtResource( 1 )]
+walkable = false
+pushable = true
+deletable = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovableObject"]
+position = Vector2( 8, 8 )
+frames = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

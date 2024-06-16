@@ -1,0 +1,253 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/House/House.png" type="Texture" id=1]
+[ext_resource path="res://Objects/House/House.gd" type="Script" id=2]
+[ext_resource path="res://Objects/House/Indoor.png" type="Texture" id=3]
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/House/Indoor Light.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 32 )
+
+[node name="House" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 40, 48 )
+texture = ExtResource( 5 )
+mode = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Indoor" type="Sprite" parent="."]
+position = Vector2( 40, 48 )
+z_index = -1
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 16 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 32, 16 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 16 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 32 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 8, 24 )
+scale = Vector2( 0.5, 1.5 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 48 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 8, 48 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 16, 64 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 8, 64 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall16" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 32, 80 )
+rotation = 1.5708
+scale = Vector2( 0.5, 1.5 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall17" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 32, 72 )
+rotation = 1.5708
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall18" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 72, 80 )
+rotation = 1.5708
+scale = Vector2( 0.5, 1.5 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall19" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 64, 72 )
+rotation = 1.5708
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 56, 64 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall12" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 64, 48 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall13" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 56, 48 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall20" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 48, 48 )
+scale = Vector2( 1, 0.5 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall14" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 64, 24 )
+scale = Vector2( 0.5, 1.5 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="Wall15" parent="Walls" instance=ExtResource( 4 )]
+position = Vector2( 56, 32 )
+scale = Vector2( 0.5, 1 )
+walkable = false
+pickable = false
+override_position = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+light_mask = 2
+frames = SubResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite"]
+z_index = 1
+
+[node name="TextureRect" type="TextureRect" parent="AnimatedSprite/Node2D"]
+margin_right = 80.0
+margin_bottom = 72.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 40, 48 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="BlockPlacement" parent="." instance=ExtResource( 4 )]
+position = Vector2( 32, 80 )
+pickable = false
+
+[node name="BlockPlacement5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 48, 64 )
+pickable = false
+
+[node name="BlockPlacement6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 16, 64 )
+pickable = false
+
+[node name="BlockPlacement7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 16, 80 )
+pickable = false
+
+[node name="BlockPlacement8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 48, 80 )
+pickable = false
+
+[node name="BlockPlacement2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 32, 32 )
+pickable = false
+
+[node name="BlockPlacement3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 32, 64 )
+pickable = false
+
+[node name="BlockPlacement4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 32, 48 )
+pickable = false
+
+[connection signal="area_entered" from="." to="." method="_on_House_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_House_area_exited"]

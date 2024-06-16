@@ -1,0 +1,349 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://UI/Scenes/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Plant/Plant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shader/CircleCutout.gdshader" type="Shader" id=3]
+[ext_resource path="res://UI/GUI/Select Screen/Select Screen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/GUI/Button/AnimatedButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/PlantMover/PlantMover.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Fonts/yoster.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://UI/Transition/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Music/Farm.wav" type="AudioStream" id=9]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform int numberOfColors: hint_range(1,12);
+uniform vec4 C1: hint_color;
+uniform vec4 C2: hint_color;
+uniform vec4 C3: hint_color;
+uniform vec4 C4: hint_color;
+uniform vec4 C5: hint_color;
+uniform vec4 C6: hint_color;
+uniform vec4 C7: hint_color;
+uniform vec4 C8: hint_color;
+uniform vec4 C9: hint_color;
+uniform vec4 C10: hint_color;
+uniform vec4 C11: hint_color;
+uniform vec4 C12: hint_color;
+
+void fragment() {
+	vec4 referenceColors[12];
+	referenceColors[0] = C1;
+	referenceColors[1] = C2;
+	referenceColors[2] = C3;
+	referenceColors[3] = C4;
+	referenceColors[4] = C5;
+	referenceColors[5] = C6;
+	referenceColors[6] = C7;
+	referenceColors[7] = C8;
+	referenceColors[8] = C9;
+	referenceColors[9] = C10;
+	referenceColors[10] = C11;
+	referenceColors[11] = C12;
+	
+	vec4 textureColor = texture(TEXTURE,UV);
+	COLOR = vec4(0,0,0,0);
+	COLOR.rgb = referenceColors[int(floor(textureColor.r * float(numberOfColors)))].rgb;
+	COLOR.a = textureColor.a;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/numberOfColors = 8
+shader_param/C1 = Color( 0.678431, 0.184314, 0.270588, 1 )
+shader_param/C2 = Color( 0.901961, 0.270588, 0.223529, 1 )
+shader_param/C3 = Color( 1, 0.537255, 0.2, 1 )
+shader_param/C4 = Color( 0.941176, 0.709804, 0.254902, 1 )
+shader_param/C5 = Color( 0.184314, 0.341176, 0.32549, 1 )
+shader_param/C6 = Color( 0.231373, 0.490196, 0.309804, 1 )
+shader_param/C7 = Color( 0.239216, 0.160784, 0.211765, 1 )
+shader_param/C8 = Color( 0.321569, 0.2, 0.247059, 1 )
+shader_param/C9 = Color( 0.321569, 0.2, 0.247059, 1 )
+shader_param/C10 = null
+shader_param/C11 = null
+shader_param/C12 = null
+
+[sub_resource type="DynamicFont" id=7]
+size = 128
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/circle_size = 0.0
+shader_param/screen_width = 1024.0
+shader_param/screen_height = 600.0
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.301961, 0.666667, 0.337255, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Load" type="Timer" parent="."]
+one_shot = true
+
+[node name="YSort" type="YSort" parent="."]
+z_index = -1
+
+[node name="Plant" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 464, 96 )
+age = 15
+species = 2
+color = 3
+
+[node name="GridObject" parent="YSort/Plant/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 816, 408 )
+age = 15
+
+[node name="GridObject" parent="YSort/Plant2/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant2/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant2/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant3" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, 88 )
+age = 15
+
+[node name="GridObject" parent="YSort/Plant3/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant3/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant3/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant4" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 648, 40 )
+age = 15
+species = 1
+color = 2
+
+[node name="GridObject" parent="YSort/Plant4/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant4/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant4/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant5" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 816, 136 )
+age = 15
+species = 2
+
+[node name="GridObject" parent="YSort/Plant5/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant5/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant5/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant6" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 480 )
+age = 15
+color = 4
+
+[node name="GridObject" parent="YSort/Plant6/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant6/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant6/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant7" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 224, 352 )
+age = 15
+species = 1
+
+[node name="GridObject" parent="YSort/Plant7/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant7/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant7/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Plant8" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 576, 296 )
+age = 15
+species = 2
+
+[node name="GridObject" parent="YSort/Plant8/MovableObject" index="0"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Area2D" parent="YSort/Plant8/MovableObject/GridObject" index="2"]
+scale = Vector2( 0.25, 0.25 )
+
+[node name="AnimatedSprite" parent="YSort/Plant8/MovableObject" index="2"]
+material = SubResource( 5 )
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 32.0
+margin_bottom = 161.0
+custom_fonts/font = SubResource( 7 )
+text = "My Garden"
+align = 1
+valign = 1
+
+[node name="Select Screen" parent="." instance=ExtResource( 4 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -232.0
+margin_top = -536.0
+margin_right = 244.0
+margin_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+scroll_horizontal_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -184.0
+margin_right = 160.0
+margin_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Select" parent="HBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 64.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 64, 0 )
+focus_mode = 2
+custom_fonts/font = SubResource( 6 )
+text = "<"
+
+[node name="Play" parent="HBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 68.0
+margin_top = 0.0
+margin_right = 396.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 210, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Continue"
+
+[node name="New Game" parent="HBoxContainer" instance=ExtResource( 5 )]
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 400.0
+margin_top = 0.0
+margin_right = 464.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 64, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "+"
+
+[node name="PlantMover" parent="." instance=ExtResource( 6 )]
+position = Vector2( -104, -104 )
+
+[node name="Area2D" parent="PlantMover" index="0"]
+visible = true
+scale = Vector2( 4, 4 )
+
+[node name="CollisionShape2D" parent="PlantMover/Area2D" index="0"]
+visible = false
+
+[node name="GridObject" parent="PlantMover" index="1"]
+scale = Vector2( 4, 4 )
+tile_size = Vector2( 64, 64 )
+
+[node name="Transition" parent="." instance=ExtResource( 8 )]
+visible = false
+material = SubResource( 2 )
+mouse_filter = 2
+start_closed = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[connection signal="timeout" from="Load" to="." method="_on_Load_timeout"]
+[connection signal="button_down" from="HBoxContainer/Select" to="." method="_on_Select_button_down"]
+[connection signal="button_down" from="HBoxContainer/Play" to="." method="_on_Play_button_down"]
+[connection signal="button_down" from="HBoxContainer/New Game" to="." method="_on_New_Game_button_down"]
+
+[editable path="YSort/Plant"]
+[editable path="YSort/Plant/MovableObject"]
+[editable path="YSort/Plant2"]
+[editable path="YSort/Plant2/MovableObject"]
+[editable path="YSort/Plant3"]
+[editable path="YSort/Plant3/MovableObject"]
+[editable path="YSort/Plant4"]
+[editable path="YSort/Plant4/MovableObject"]
+[editable path="YSort/Plant5"]
+[editable path="YSort/Plant5/MovableObject"]
+[editable path="YSort/Plant6"]
+[editable path="YSort/Plant6/MovableObject"]
+[editable path="YSort/Plant7"]
+[editable path="YSort/Plant7/MovableObject"]
+[editable path="YSort/Plant8"]
+[editable path="YSort/Plant8/MovableObject"]
+[editable path="PlantMover"]

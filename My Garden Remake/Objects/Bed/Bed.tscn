@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Objects/Bed/Bed1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Bed/Bed.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Bed/Bed2.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "New Day"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasModulate:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.9, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0, 0.407843, -0.25, 0, 0.25, 0, 0.988235, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 2.5, 3, 4, 5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasModulate:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.9, -0.25, 0, 0.25, 0, 0.709804, -0.25, 0, 0.25, 0, 0.435294, -0.25, 0, 0.25, 0, 0.435294, -0.25, 0, 0.25, 0, 0.435294, -0.25, 0, 0.25, 0, 0.85098, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 2.5, 3, 4, 5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasModulate:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.9, -0.25, 0, 0.25, 0, 0.772549, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0, 0.74902, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 2.5, 3, 4, 5 )
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 2, 2.5, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "sleeping_particle"
+}, {
+"args": [  ],
+"method": "outside_area"
+}, {
+"args": [  ],
+"method": "start_new_day"
+}, {
+"args": [ false ],
+"method": "sleeping_particle"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasModulate:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasModulate:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasModulate:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Bed" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="MovableObject" parent="." instance=ExtResource( 2 )]
+pickable = false
+is_furniture = true
+furniture_type = "Bed"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MovableObject"]
+position = Vector2( 8, 8 )
+frames = SubResource( 1 )
+
+[node name="Blanket" type="Sprite" parent="MovableObject"]
+visible = false
+position = Vector2( 8, 8 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="MovableObject"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovableObject/Area2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+"anims/New Day" = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="AutoSave" type="Timer" parent="."]
+wait_time = 100.0
+autostart = true
+
+[connection signal="area_entered" from="MovableObject/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="AutoSave" to="." method="_on_AutoSave_timeout"]

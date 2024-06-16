@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Flower Pot/Flower Pot.png" type="Texture" id=1]
+[ext_resource path="res://Objects/MovableObject/MovableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Flower Pot/Flower Pot.gd" type="Script" id=3]
+
+[node name="Flower Pot" type="Node2D"]
+z_index = -1
+script = ExtResource( 3 )
+
+[node name="MovableObject" parent="." instance=ExtResource( 2 )]
+walkable = false
+pickable = false
+stackable = true
+
+[node name="Sprite" type="Sprite" parent="MovableObject"]
+position = Vector2( 8, 8 )
+texture = ExtResource( 1 )
