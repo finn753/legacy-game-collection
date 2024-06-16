@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Fonts/yoster.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Components/VolumeSlider/VolumeSlider.tscn" type="PackedScene" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="VolumeSettings" type="VBoxContainer"]
+margin_top = 24.0
+margin_right = 256.0
+margin_bottom = 128.0
+
+[node name="Master" type="HBoxContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 32.0
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Master"]
+margin_top = 4.0
+margin_right = 88.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 88, 0 )
+custom_colors/font_color = Color( 0.372549, 0.184314, 0.270588, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Master"
+align = 1
+
+[node name="Master" parent="Master" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 8.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus = "Master"
+
+[node name="Music" type="HBoxContainer" parent="."]
+margin_top = 36.0
+margin_right = 256.0
+margin_bottom = 68.0
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Music"]
+margin_top = 4.0
+margin_right = 88.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 88, 0 )
+custom_colors/font_color = Color( 0.372549, 0.184314, 0.270588, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Music"
+align = 1
+
+[node name="Music" parent="Music" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 8.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus = "Music"
+
+[node name="Sound" type="HBoxContainer" parent="."]
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 104.0
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="Label" type="Label" parent="Sound"]
+margin_top = 4.0
+margin_right = 88.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 88, 0 )
+custom_colors/font_color = Color( 0.372549, 0.184314, 0.270588, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Sound"
+align = 1
+
+[node name="Sound" parent="Sound" instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 8.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus = "Sound"
