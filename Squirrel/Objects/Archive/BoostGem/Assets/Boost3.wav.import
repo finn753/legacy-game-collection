@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boost3.wav-6d464a1fc1b29cb26814776fc71d59a6.sample"
+
+[deps]
+
+source_file="res://Objects/Archive/BoostGem/Assets/Boost3.wav"
+dest_files=[ "res://.import/Boost3.wav-6d464a1fc1b29cb26814776fc71d59a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
