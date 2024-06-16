@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Plant/Plant.gd" type="Script" id=1]
+[ext_resource path="res://Plant/Hanging/White/White9.png" type="Texture" id=2]
+[ext_resource path="res://Plant/Watered.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "watered",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "unwatered",
+"speed": 5.0
+} ]
+
+[node name="Plant" type="Sprite" groups=[
+"Save",
+]]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -8 )
+script = ExtResource( 1 )
+
+[node name="Sex Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sex Area"]
+shape = SubResource( 1 )
+
+[node name="Water" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+show_behind_parent = true
+position = Vector2( 0, -6 )
+frames = SubResource( 2 )
+animation = "unwatered"

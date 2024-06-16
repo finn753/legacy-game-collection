@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Objects/Door/Door1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Door/Door3.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Door/Door2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Door/Door4.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Door/Door.gd" type="Script" id=5]
+[ext_resource path="res://Objects/Door/Door5.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "close",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "open",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 40 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeInBlack"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasModulate:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasModulate:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasModulate:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeOutBlack"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasModulate:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasModulate:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasModulate:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Sleep"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasModulate:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.290196, -0.25, 0, 0.25, 0, 0.843137, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CanvasModulate:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.376471, -0.25, 0, 0.25, 0, 0.807843, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CanvasModulate:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.682353, -0.25, 0, 0.25, 0, 0.647059, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3 )
+}
+
+[node name="Door" type="Area2D"]
+script = ExtResource( 5 )
+
+[node name="BG" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "close"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 2 )
+
+[node name="Open" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Open"]
+position = Vector2( 0, 16 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeOutBlack"
+playback_speed = 3.0
+anims/FadeInBlack = SubResource( 4 )
+anims/FadeOutBlack = SubResource( 5 )
+anims/Sleep = SubResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_index = 4
+
+[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
+[connection signal="body_entered" from="Open" to="." method="_on_Open_body_entered"]
+[connection signal="body_exited" from="Open" to="." method="_on_Open_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

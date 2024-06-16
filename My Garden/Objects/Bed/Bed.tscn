@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Bed/Bed1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Bed/Bed2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Bed/Bed.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 16 )
+
+[node name="Bed" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -16, 32, 16, 32, 16, 24, -16, 24 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -16, -16, 16, -16, 16, -8, -16, -8 )
+
+[connection signal="body_entered" from="." to="." method="_on_Bed_body_entered"]
