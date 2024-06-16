@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spawn_Memory.wav-4273535af4543b9b0049c7edd3cc856d.sample"
+
+[deps]
+
+source_file="res://Sound/Sound/Spawn_Memory.wav"
+dest_files=[ "res://.import/Spawn_Memory.wav-4273535af4543b9b0049c7edd3cc856d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

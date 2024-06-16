@@ -1,0 +1,459 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Fonts/yoster.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/TPParticle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Menu.gd" type="Script" id=3]
+[ext_resource path="res://UI/Font.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+extra_spacing_char = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rotate"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 3, 4 )
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 2
+border_color = Color( 0.4, 0.4, 0.4, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="InputEventAction" id=10]
+action = "start"
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[sub_resource type="Animation" id=12]
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.607843, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TPParticle" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle2" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle4" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle3" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle8" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle7" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle6" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle5" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle16" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle15" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle14" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle13" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle12" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle11" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle10" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle9" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle32" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle31" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle30" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle29" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle28" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle27" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle26" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle25" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle24" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle23" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle22" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle21" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle20" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle19" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle18" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle17" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle64" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle63" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle62" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle61" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle60" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle59" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle58" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle57" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle56" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle55" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle54" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle53" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle52" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle51" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle50" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle49" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle48" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle47" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle46" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle45" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle44" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle43" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle42" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle41" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle40" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle39" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle38" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle37" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle36" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle35" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle34" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle33" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle128" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle127" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle126" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle125" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle124" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle123" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle122" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle121" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle120" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle119" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle118" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle117" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle116" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle115" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle114" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle113" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle112" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle111" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle110" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle109" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle108" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle107" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle106" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle105" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle104" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle103" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle102" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle101" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle100" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle99" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle98" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle97" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle96" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle95" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle94" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle93" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle92" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle91" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle90" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle89" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle88" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle87" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle86" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle85" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle84" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle83" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle82" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle81" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle80" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle79" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle78" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle77" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle76" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle75" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle74" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle73" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle72" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle71" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle70" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle69" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle68" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle67" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle66" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="TPParticle65" parent="Node2D" instance=ExtResource( 2 )]
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -374.5
+margin_top = 48.0
+margin_right = 374.5
+margin_bottom = 149.0
+rect_rotation = -1.11537
+rect_pivot_offset = Vector2( 374, 50 )
+custom_fonts/font = SubResource( 1 )
+text = "Deep In Mind"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+autoplay = "Rotate"
+anims/Rotate = SubResource( 2 )
+
+[node name="Credits" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -168.0
+margin_top = -39.0
+focus_mode = 0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+enabled_focus_mode = 0
+text = "Finn Pickart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Version" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -49.0
+margin_right = 95.0
+custom_fonts/font = ExtResource( 4 )
+text = "Version"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0.747401 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = 60.5
+margin_right = 81.0
+margin_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+shortcut = SubResource( 11 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Play"]
+autoplay = "Resize"
+anims/Resize = SubResource( 12 )
+
+[connection signal="button_down" from="Credits" to="." method="_on_Button_button_down"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_button_mouse_entered"]
+[connection signal="button_down" from="Play" to="." method="_on_Play_button_down"]
+[connection signal="mouse_entered" from="Play" to="." method="_on_button_mouse_entered"]

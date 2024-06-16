@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Heart/HeartL.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Heart/HeartL.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="HeartL" type="RigidBody2D"]
+z_index = -1
+mode = 2
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -0.0469494, 15.9477, -15.9387, -0.00814056, -16.0028, -6.92873, -8.95401, -13.9134, -6.13451, -13.9775, -0.111029, -8.97928, -0.559586, -6.15978, 2.45215, -3.34028, 2.38807, -0.584856, 0.850164, -0.392618, -2.0975, 2.61912, -2.35381, 4.47743, -3.31501, 4.66967, -3.50725, 6.91245, -2.54605, 7.48917, -2.41789, 9.60379, -0.623667, 11.4621 )
